@@ -1,14 +1,15 @@
 # choicebound
 
-work out, from a predicate's clauses alone, the most solutions (choicepoints) it can give for a list of length N, and certify it. A predicate recursing on a list's tail has the bound S(0) = B0, S(N) = B1 + R * S(N-1), where B0 counts clauses that answer the empty list, B1 the non-recursive clauses that answer a non-empty one, and R the recursive clauses. The bound is checked against real runs (a meta-interpreter counts the solutions).
+work out, from a predicate's clauses alone, the most solutions (choicepoints) it can give for a list of length N, and certify it. For a predicate that recurses on a list's tail, S(N) = (non-recursive clauses whose head fits a list of length N) + (recursive clauses whose head fits it) * S(N - 1). The bound is checked against real runs (a meta-interpreter counts the solutions).
 
 ## Use
 
 ```prolog
 ?- use_module(prolog/choicebound).
-?- analyse(member, A).                  % A = rec(0, 1, 1): member has at most N solutions
+?- analyse(member, A).                  % A = [base, rec]
 ?- bound(member, 4, B).                 % B = 4
 ?- bound(append_split, 3, B).           % B = 4: append(A, B, L) splits L in N + 1 ways
+?- bound(last, 5, B).                   % B = 1: lst([X], X) fits only a list of length 1
 ?- actual(select, [a,b,c], K).          % K = 3
 ```
 
@@ -18,7 +19,7 @@ work out, from a predicate's clauses alone, the most solutions (choicepoints) it
 
 1. The bound is sound: no list of length N gives more solutions than the bound.
 2. For these predicates the bound is exact (it is reached).
-3. The known counts: member and select give N, append's splits N + 1, last and length 1 (when N > 0 for last).
+3. The known counts: member and select give N, append's splits N + 1, last and length 1, twice 2N.
 4. deterministic holds exactly for the predicates whose bound never passes 1.
 5. The certificate's rows all hold.
 
