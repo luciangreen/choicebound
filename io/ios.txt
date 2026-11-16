@@ -1,0 +1,402 @@
+choicebound: 200 inputs and outputs, from real runs (io/ios.pl has the same as Prolog facts).
+
+1. analyse(select)
+   => [base,rec]
+2. bound(member, 11)
+   => 11
+3. actual(last, [b,c])
+   => 1
+4. certificate(member, 0)
+   => cert(member,[0-0-0])
+5. analyse(last)
+   => [base,rec]
+6. bound(member, 6)
+   => 6
+7. actual(length, [c,a,c,c,b])
+   => 1
+8. certificate(append_split, 1)
+   => cert(append_split,[0-1-1,1-2-2])
+9. analyse(length)
+   => [base,rec]
+10. bound(twice, 0)
+   => 0
+11. actual(twice, [a,b,b,b])
+   => 8
+12. certificate(select, 1)
+   => cert(select,[0-0-0,1-1-1])
+13. analyse(select)
+   => [base,rec]
+14. bound(length, 2)
+   => 1
+15. actual(member, [c,b,a,c,a])
+   => 5
+16. certificate(member, 0)
+   => cert(member,[0-0-0])
+17. analyse(last)
+   => [base,rec]
+18. bound(member, 3)
+   => 3
+19. actual(select, [])
+   => 0
+20. certificate(twice, 1)
+   => cert(twice,[0-0-0,1-2-2])
+21. analyse(member)
+   => [base,rec]
+22. bound(select, 8)
+   => 8
+23. actual(last, [b])
+   => 1
+24. certificate(length, 2)
+   => cert(length,[0-1-1,1-1-1,2-1-1])
+25. analyse(member)
+   => [base,rec]
+26. bound(last, 9)
+   => 1
+27. actual(length, [a])
+   => 1
+28. certificate(length, 2)
+   => cert(length,[0-1-1,1-1-1,2-1-1])
+29. analyse(member)
+   => [base,rec]
+30. bound(last, 10)
+   => 1
+31. actual(member, [])
+   => 0
+32. certificate(append_split, 0)
+   => cert(append_split,[0-1-1])
+33. analyse(length)
+   => [base,rec]
+34. bound(member, 8)
+   => 8
+35. actual(length, [b,a,c])
+   => 1
+36. certificate(append_split, 2)
+   => cert(append_split,[0-1-1,1-2-2,2-3-3])
+37. analyse(last)
+   => [base,rec]
+38. bound(member, 5)
+   => 5
+39. actual(last, [])
+   => 0
+40. certificate(member, 1)
+   => cert(member,[0-0-0,1-1-1])
+41. analyse(last)
+   => [base,rec]
+42. bound(length, 4)
+   => 1
+43. actual(last, [a,b,a,c,b])
+   => 1
+44. certificate(length, 4)
+   => cert(length,[0-1-1,1-1-1,2-1-1,3-1-1,4-1-1])
+45. analyse(select)
+   => [base,rec]
+46. bound(member, 11)
+   => 11
+47. actual(last, [c,a,a,b,b,b])
+   => 1
+48. certificate(twice, 0)
+   => cert(twice,[0-0-0])
+49. analyse(append_split)
+   => [base,rec]
+50. bound(length, 4)
+   => 1
+51. actual(member, [b,b,c])
+   => 3
+52. certificate(select, 3)
+   => cert(select,[0-0-0,1-1-1,2-2-2,3-3-3])
+53. analyse(last)
+   => [base,rec]
+54. bound(last, 4)
+   => 1
+55. actual(length, [])
+   => 1
+56. certificate(member, 2)
+   => cert(member,[0-0-0,1-1-1,2-2-2])
+57. analyse(member)
+   => [base,rec]
+58. bound(last, 11)
+   => 1
+59. actual(last, [a,b,c])
+   => 1
+60. certificate(length, 4)
+   => cert(length,[0-1-1,1-1-1,2-1-1,3-1-1,4-1-1])
+61. analyse(select)
+   => [base,rec]
+62. bound(select, 11)
+   => 11
+63. actual(length, [b,c,a,b,b,c])
+   => 1
+64. certificate(twice, 4)
+   => cert(twice,[0-0-0,1-2-2,2-4-4,3-6-6,4-8-8])
+65. analyse(last)
+   => [base,rec]
+66. bound(length, 0)
+   => 1
+67. actual(member, [a,a,a,a])
+   => 4
+68. certificate(last, 4)
+   => cert(last,[0-0-0,1-1-1,2-1-1,3-1-1,4-1-1])
+69. analyse(select)
+   => [base,rec]
+70. bound(twice, 10)
+   => 20
+71. actual(length, [])
+   => 1
+72. certificate(twice, 4)
+   => cert(twice,[0-0-0,1-2-2,2-4-4,3-6-6,4-8-8])
+73. analyse(select)
+   => [base,rec]
+74. bound(append_split, 4)
+   => 5
+75. actual(append_split, [a,b,a,b])
+   => 5
+76. certificate(length, 0)
+   => cert(length,[0-1-1])
+77. analyse(select)
+   => [base,rec]
+78. bound(select, 2)
+   => 2
+79. actual(last, [c,b,b,c])
+   => 1
+80. certificate(select, 1)
+   => cert(select,[0-0-0,1-1-1])
+81. analyse(twice)
+   => [base,base,rec]
+82. bound(append_split, 5)
+   => 6
+83. actual(last, [a,b,b,b])
+   => 1
+84. certificate(length, 1)
+   => cert(length,[0-1-1,1-1-1])
+85. analyse(member)
+   => [base,rec]
+86. bound(append_split, 1)
+   => 2
+87. actual(append_split, [c,c])
+   => 3
+88. certificate(last, 2)
+   => cert(last,[0-0-0,1-1-1,2-1-1])
+89. analyse(append_split)
+   => [base,rec]
+90. bound(member, 8)
+   => 8
+91. actual(length, [a,a,b,c,a,c])
+   => 1
+92. certificate(twice, 3)
+   => cert(twice,[0-0-0,1-2-2,2-4-4,3-6-6])
+93. analyse(append_split)
+   => [base,rec]
+94. bound(member, 1)
+   => 1
+95. actual(length, [])
+   => 1
+96. certificate(member, 0)
+   => cert(member,[0-0-0])
+97. analyse(select)
+   => [base,rec]
+98. bound(member, 10)
+   => 10
+99. actual(last, [b,a])
+   => 1
+100. certificate(twice, 2)
+   => cert(twice,[0-0-0,1-2-2,2-4-4])
+101. analyse(append_split)
+   => [base,rec]
+102. bound(append_split, 0)
+   => 1
+103. actual(select, [])
+   => 0
+104. certificate(member, 4)
+   => cert(member,[0-0-0,1-1-1,2-2-2,3-3-3,4-4-4])
+105. analyse(append_split)
+   => [base,rec]
+106. bound(member, 12)
+   => 12
+107. actual(last, [a,c,a,a,a])
+   => 1
+108. certificate(append_split, 1)
+   => cert(append_split,[0-1-1,1-2-2])
+109. analyse(append_split)
+   => [base,rec]
+110. bound(select, 8)
+   => 8
+111. actual(append_split, [a,a,b,b,c])
+   => 6
+112. certificate(twice, 4)
+   => cert(twice,[0-0-0,1-2-2,2-4-4,3-6-6,4-8-8])
+113. analyse(last)
+   => [base,rec]
+114. bound(append_split, 0)
+   => 1
+115. actual(length, [])
+   => 1
+116. certificate(last, 0)
+   => cert(last,[0-0-0])
+117. analyse(member)
+   => [base,rec]
+118. bound(twice, 9)
+   => 18
+119. actual(append_split, [c,a,b,b])
+   => 5
+120. certificate(append_split, 3)
+   => cert(append_split,[0-1-1,1-2-2,2-3-3,3-4-4])
+121. analyse(append_split)
+   => [base,rec]
+122. bound(select, 8)
+   => 8
+123. actual(member, [c,b,b,c,a])
+   => 5
+124. certificate(last, 4)
+   => cert(last,[0-0-0,1-1-1,2-1-1,3-1-1,4-1-1])
+125. analyse(length)
+   => [base,rec]
+126. bound(append_split, 0)
+   => 1
+127. actual(last, [c,a])
+   => 1
+128. certificate(twice, 1)
+   => cert(twice,[0-0-0,1-2-2])
+129. analyse(last)
+   => [base,rec]
+130. bound(select, 10)
+   => 10
+131. actual(twice, [a,a,a,a])
+   => 8
+132. certificate(select, 4)
+   => cert(select,[0-0-0,1-1-1,2-2-2,3-3-3,4-4-4])
+133. analyse(last)
+   => [base,rec]
+134. bound(select, 2)
+   => 2
+135. actual(select, [c,a,c,b,c])
+   => 5
+136. certificate(twice, 3)
+   => cert(twice,[0-0-0,1-2-2,2-4-4,3-6-6])
+137. analyse(length)
+   => [base,rec]
+138. bound(member, 8)
+   => 8
+139. actual(last, [a,c])
+   => 1
+140. certificate(last, 1)
+   => cert(last,[0-0-0,1-1-1])
+141. analyse(member)
+   => [base,rec]
+142. bound(twice, 0)
+   => 0
+143. actual(member, [b,c,c,b])
+   => 4
+144. certificate(select, 2)
+   => cert(select,[0-0-0,1-1-1,2-2-2])
+145. analyse(select)
+   => [base,rec]
+146. bound(twice, 2)
+   => 4
+147. actual(length, [c,a,c,a])
+   => 1
+148. certificate(twice, 1)
+   => cert(twice,[0-0-0,1-2-2])
+149. analyse(member)
+   => [base,rec]
+150. bound(member, 2)
+   => 2
+151. actual(length, [a,c])
+   => 1
+152. certificate(length, 4)
+   => cert(length,[0-1-1,1-1-1,2-1-1,3-1-1,4-1-1])
+153. analyse(length)
+   => [base,rec]
+154. bound(twice, 11)
+   => 22
+155. actual(last, [a,a,a])
+   => 1
+156. certificate(twice, 2)
+   => cert(twice,[0-0-0,1-2-2,2-4-4])
+157. analyse(twice)
+   => [base,base,rec]
+158. bound(twice, 7)
+   => 14
+159. actual(length, [c,a])
+   => 1
+160. certificate(twice, 2)
+   => cert(twice,[0-0-0,1-2-2,2-4-4])
+161. analyse(last)
+   => [base,rec]
+162. bound(twice, 0)
+   => 0
+163. actual(twice, [a,c,a])
+   => 6
+164. certificate(length, 1)
+   => cert(length,[0-1-1,1-1-1])
+165. analyse(select)
+   => [base,rec]
+166. bound(twice, 7)
+   => 14
+167. actual(member, [a,b,c,c])
+   => 4
+168. certificate(select, 1)
+   => cert(select,[0-0-0,1-1-1])
+169. analyse(last)
+   => [base,rec]
+170. bound(member, 9)
+   => 9
+171. actual(select, [b,b,c,a,b])
+   => 5
+172. certificate(member, 1)
+   => cert(member,[0-0-0,1-1-1])
+173. analyse(last)
+   => [base,rec]
+174. bound(select, 12)
+   => 12
+175. actual(select, [b,b,a,b,a,a])
+   => 6
+176. certificate(last, 1)
+   => cert(last,[0-0-0,1-1-1])
+177. analyse(member)
+   => [base,rec]
+178. bound(select, 5)
+   => 5
+179. actual(append_split, [b,c,b])
+   => 4
+180. certificate(append_split, 4)
+   => cert(append_split,[0-1-1,1-2-2,2-3-3,3-4-4,4-5-5])
+181. analyse(member)
+   => [base,rec]
+182. bound(twice, 4)
+   => 8
+183. actual(twice, [c])
+   => 2
+184. certificate(twice, 0)
+   => cert(twice,[0-0-0])
+185. analyse(twice)
+   => [base,base,rec]
+186. bound(select, 10)
+   => 10
+187. actual(length, [])
+   => 1
+188. certificate(length, 0)
+   => cert(length,[0-1-1])
+189. analyse(select)
+   => [base,rec]
+190. bound(length, 6)
+   => 1
+191. actual(twice, [])
+   => 0
+192. certificate(last, 3)
+   => cert(last,[0-0-0,1-1-1,2-1-1,3-1-1])
+193. analyse(last)
+   => [base,rec]
+194. bound(append_split, 0)
+   => 1
+195. actual(twice, [a,c,a])
+   => 6
+196. certificate(member, 2)
+   => cert(member,[0-0-0,1-1-1,2-2-2])
+197. analyse(select)
+   => [base,rec]
+198. bound(last, 5)
+   => 1
+199. actual(last, [a])
+   => 1
+200. certificate(length, 3)
+   => cert(length,[0-1-1,1-1-1,2-1-1,3-1-1])
