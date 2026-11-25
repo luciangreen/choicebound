@@ -15,8 +15,8 @@ theorem(bound_is_sound) :- forall(( pred(P, _, _), between(0, 5, N), length(L, N
 % 2. For these predicates the bound is exact (it is reached).
 theorem(bound_is_exact) :- forall(( pred(P, _, _), between(0, 5, N), length(L, N), numlist(1, N, L0), ( N =:= 0 -> L = [] ; L = L0 ) ), ( bound(P, N, B), actual(P, L, B) )).
 
-% 3. The known counts: member and select give N, append's splits N + 1, last and length 1, twice 2N.
-theorem(known_counts) :- forall(between(1, 5, N), ( bound(member, N, N), bound(select, N, N), N1 is N + 1, bound(append_split, N, N1), bound(last, N, 1), bound(length, N, 1), N2 is 2 * N, bound(twice, N, N2) )).
+% 3. The known counts: member and select give N, append's splits N + 1, last and length 1, twice 2N, pick2 2^N.
+theorem(known_counts) :- forall(between(1, 5, N), ( bound(member, N, N), bound(select, N, N), N1 is N + 1, bound(append_split, N, N1), bound(last, N, 1), bound(length, N, 1), N2 is 2 * N, bound(twice, N, N2), N3 is 2 ^ N, bound(pick2, N, N3) )).
 
 % 4. deterministic holds exactly for the predicates whose bound never passes 1.
 theorem(deterministic_iff_bound_le_one) :- forall(pred(P, _, _), iff(deterministic(P), forall(between(0, 6, N), ( bound(P, N, B), B =< 1 )))).

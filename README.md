@@ -1,6 +1,6 @@
 # choicebound
 
-work out, from a predicate's clauses alone, the most solutions (choicepoints) it can give for a list of length N, and certify it. For a predicate that recurses on a list's tail, S(N) = (non-recursive clauses whose head fits a list of length N) + (recursive clauses whose head fits it) * S(N - 1). The bound is checked against real runs (a meta-interpreter counts the solutions).
+work out, from a predicate's clauses alone, the most solutions (choicepoints) it can give for a list of length N, and certify it. For a predicate that recurses on a list's tail, S(N) = (non-recursive clauses whose head fits a list of length N) + (recursive clauses whose head fits it) * S(N - 1), where each clause counts as many answers as its other body goals can give together (one for a test or arithmetic, H - L + 1 for between(L, H, _)); a goal whose answers are not known gives no bound rather than a wrong one. The bound is checked against real runs (a meta-interpreter counts the solutions).
 
 ## Use
 
@@ -11,6 +11,7 @@ work out, from a predicate's clauses alone, the most solutions (choicepoints) it
 ?- bound(append_split, 3, B).           % B = 4: append(A, B, L) splits L in N + 1 ways
 ?- bound(last, 5, B).                   % B = 1: lst([X], X) fits only a list of length 1
 ?- actual(select, [a,b,c], K).          % K = 3
+?- bound(pick2, 4, B).                  % B = 16
 ```
 
 ## Proofs
@@ -19,7 +20,7 @@ work out, from a predicate's clauses alone, the most solutions (choicepoints) it
 
 1. The bound is sound: no list of length N gives more solutions than the bound.
 2. For these predicates the bound is exact (it is reached).
-3. The known counts: member and select give N, append's splits N + 1, last and length 1, twice 2N.
+3. The known counts: member and select give N, append's splits N + 1, last and length 1, twice 2N, pick2 (between(1, 2, _) for each item) 2^N.
 4. deterministic holds exactly for the predicates whose bound never passes 1.
 5. The certificate's rows all hold.
 
